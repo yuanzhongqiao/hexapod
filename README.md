@@ -1,72 +1,165 @@
-
-[![build status](https://github.com/mithi/hexapod/workflows/build/badge.svg)](https://hexapod.netlify.app)
-[![Code Climate](https://codeclimate.com/github/mithi/hexapod/badges/gpa.svg)](https://codeclimate.com/github/mithi/hexapod)
-[![technical debt](https://img.shields.io/codeclimate/tech-debt/mithi/hexapod)](https://codeclimate.com/github/mithi/hexapod/trends/technical_debt)
-[![codecov](https://codecov.io/gh/mithi/hexapod/branch/master/graph/badge.svg)](https://codecov.io/gh/mithi/hexapod)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat)](https://github.com/prettier/prettier)
-[![buy me coffee](https://img.shields.io/badge/Buy%20me%20-coffee!-orange.svg?logo=buy-me-a-coffee&color=795548)](https://ko-fi.com/minimithi)
-
-# Mithi's Bare-Minimum Hexapod Robot Simulator 2
-
-<p align="center">
-    <img src="https://mithi.github.io/robotics-blog/show-off.gif" alt="drawing" width="400" />
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><p dir="auto"><a href="https://hexapod.netlify.app" rel="nofollow"><img src="https://github.com/mithi/hexapod/workflows/build/badge.svg" alt="构建状态" style="max-width: 100%;"></a>
+<a href="https://codeclimate.com/github/mithi/hexapod" rel="nofollow"><img src="https://camo.githubusercontent.com/f060d3ab9ebca1cda5aee477e6f5c028763b7e53472317729ac8cbcd259e08bf/68747470733a2f2f636f6465636c696d6174652e636f6d2f6769746875622f6d697468692f68657861706f642f6261646765732f6770612e737667" alt="代码气候" data-canonical-src="https://codeclimate.com/github/mithi/hexapod/badges/gpa.svg" style="max-width: 100%;"></a>
+<a href="https://codeclimate.com/github/mithi/hexapod/trends/technical_debt" rel="nofollow"><img src="https://camo.githubusercontent.com/3b265aa45928b18c5060c5432142fa1635334ff58ae7f2e4d415463929d02d7a/68747470733a2f2f696d672e736869656c64732e696f2f636f6465636c696d6174652f746563682d646562742f6d697468692f68657861706f64" alt="技术债务" data-canonical-src="https://img.shields.io/codeclimate/tech-debt/mithi/hexapod" style="max-width: 100%;"></a>
+<a href="https://codecov.io/gh/mithi/hexapod" rel="nofollow"><img src="https://camo.githubusercontent.com/8766739d31ab7beaf28c28d9bb1bffacb6d381de5eddc93a292cf1f39772ff21/68747470733a2f2f636f6465636f762e696f2f67682f6d697468692f68657861706f642f6272616e63682f6d61737465722f67726170682f62616467652e737667" alt="编码" data-canonical-src="https://codecov.io/gh/mithi/hexapod/branch/master/graph/badge.svg" style="max-width: 100%;"></a>
+<a href="https://github.com/prettier/prettier"><img src="https://camo.githubusercontent.com/4ca7254f3cc367afc36a4d7d644f32a9b12d358c4e694dbc2e140921ae0316fd/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f64655f7374796c652d70726574746965722d6666363962342e7376673f7374796c653d666c6174" alt="代码风格：更漂亮" data-canonical-src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat" style="max-width: 100%;"></a>
+<a href="https://ko-fi.com/minimithi" rel="nofollow"><img src="https://camo.githubusercontent.com/90ac03aad89b65ee2121c53fb6df5b97745907b559a7e71779fa73cfdc9f2afc/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4275792532306d652532302d636f66666565212d6f72616e67652e7376673f6c6f676f3d6275792d6d652d612d636f6666656526636f6c6f723d373935353438" alt="请我喝咖啡" data-canonical-src="https://img.shields.io/badge/Buy%20me%20-coffee!-orange.svg?logo=buy-me-a-coffee&amp;color=795548" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mithi 的最低限度六足机器人模拟器 2</font></font></h1><a id="user-content-mithis-bare-minimum-hexapod-robot-simulator-2" class="anchor" aria-label="永久链接：Mithi 的最低限度六足机器人模拟器 2" href="#mithis-bare-minimum-hexapod-robot-simulator-2"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p align="center" dir="auto">
+    <animated-image data-catalyst="" style="width: 400px;"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a27edb31e7a79f10f31f87d29c11d1ec958a04ad469636bbd8128148d83088fc/68747470733a2f2f6d697468692e6769746875622e696f2f726f626f746963732d626c6f672f73686f772d6f66662e676966" data-target="animated-image.originalLink"><img src="https://camo.githubusercontent.com/a27edb31e7a79f10f31f87d29c11d1ec958a04ad469636bbd8128148d83088fc/68747470733a2f2f6d697468692e6769746875622e696f2f726f626f746963732d626c6f672f73686f772d6f66662e676966" alt="绘画" data-canonical-src="https://mithi.github.io/robotics-blog/show-off.gif" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage"></a>
+      <span class="AnimatedImagePlayer" data-target="animated-image.player" hidden="">
+        <a data-target="animated-image.replacedLink" class="AnimatedImagePlayer-images" href="https://camo.githubusercontent.com/a27edb31e7a79f10f31f87d29c11d1ec958a04ad469636bbd8128148d83088fc/68747470733a2f2f6d697468692e6769746875622e696f2f726f626f746963732d626c6f672f73686f772d6f66662e676966" target="_blank">
+          
+        <span data-target="animated-image.imageContainer">
+            <img data-target="animated-image.replacedImage" alt="绘画" class="AnimatedImagePlayer-animatedImage" src="https://camo.githubusercontent.com/a27edb31e7a79f10f31f87d29c11d1ec958a04ad469636bbd8128148d83088fc/68747470733a2f2f6d697468692e6769746875622e696f2f726f626f746963732d626c6f672f73686f772d6f66662e676966" style="display: block; opacity: 1;">
+          <canvas class="AnimatedImagePlayer-stillImage" aria-hidden="true" width="400" height="209"></canvas></span></a>
+        <button data-target="animated-image.imageButton" class="AnimatedImagePlayer-images" tabindex="-1" aria-label="玩画画" hidden=""></button>
+        <span class="AnimatedImagePlayer-controls" data-target="animated-image.controls" hidden="">
+          <button data-target="animated-image.playButton" class="AnimatedImagePlayer-button" aria-label="玩画画">
+            <svg aria-hidden="true" focusable="false" class="octicon icon-play" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 13.5427V2.45734C4 1.82607 4.69692 1.4435 5.2295 1.78241L13.9394 7.32507C14.4334 7.63943 14.4334 8.36057 13.9394 8.67493L5.2295 14.2176C4.69692 14.5565 4 14.1739 4 13.5427Z">
+            </path></svg>
+            <svg aria-hidden="true" focusable="false" class="octicon icon-pause" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="2" width="3" height="12" rx="1"></rect>
+              <rect x="9" y="2" width="3" height="12" rx="1"></rect>
+            </svg>
+          </button>
+          <a data-target="animated-image.openButton" aria-label="在新窗口中打开绘图" class="AnimatedImagePlayer-button" href="https://camo.githubusercontent.com/a27edb31e7a79f10f31f87d29c11d1ec958a04ad469636bbd8128148d83088fc/68747470733a2f2f6d697468692e6769746875622e696f2f726f626f746963732d626c6f672f73686f772d6f66662e676966" target="_blank">
+            <svg aria-hidden="true" class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+              <path fill-rule="evenodd" d="M10.604 1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1zM3.75 2A1.75 1.75 0 002 3.75v8.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 12.25v-3.5a.75.75 0 00-1.5 0v3.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-8.5a.25.25 0 01.25-.25h3.5a.75.75 0 000-1.5h-3.5z"></path>
+            </svg>
+          </a>
+        </span>
+      </span></animated-image>
 </p>
-
-You can use this web app to solve inverse kinematics, simulate various gaits, and more. In real time, you can also view all the angles the robot's eighteen joints make at any particular pose. All the computations are solely done in your browser, nothing's fetching data from somewhere else, so it should be fast. Another (somewhat) cool thing is that this app does NOT depend on any external mathematics library; it only uses Javascript's built-in Math object.
-
-Consider buying me [a few cups of coffee ☕ ☕ ☕](https://ko-fi.com/minimithi) to motivate me to build other robotics-related visualizers. (Quadrotors?!)
-
-## Features
-
-<img src="https://mithi.github.io/robotics-blog/show-off-v2-1.gif" alt="drawing" width="325" align="right" />
-
-🎉 Control
-
-- [x] The robot's dimensions
-- [x] The robot's 3d orientation, translation, stance, and more
-
-🎉 Solve
-
-- [x] Inverse Kinematics
-- [x] Forward Kinematics
-
-🎉 Simulate
-
-- [x] Ripple and tripod gait variations
-- [x] Walking forward and backwards
-- [x] Rotating clockwise and counterclockwise
-
-[🤖](https://hexapod.netlify.app/) [🐳](https://mithi.github.io/deep-blueberry/) [☕](https://ko-fi.com/minimithi)
-
-## Related Things
-
-If you'd like to build your own user interface with Node, you can download the algorithm alone as a package: [Hexapod Kinematics Library](https://github.com/mithi/hexapod-kinematics-library). There is also [a "fork" modified where you can use the app to control a physical hexapod robot](https://github.com/mithi/hexapod-irl) as you can see in the gif below. 
-
-|![](https://user-images.githubusercontent.com/1670421/103467849-46981980-4d8e-11eb-911e-7cb63282c0c2.gif)|![](https://user-images.githubusercontent.com/1670421/103467765-451a2180-4d8d-11eb-8f94-1a23201595b9.gif)|
-|--------|-------|
-| Walking Gaits | Kinematics |
-
-## Main Contributors [![PRs welcome!](https://img.shields.io/badge/PRs-welcome-orange.svg?style=flat)](./CONTRIBUTING.md)
-
-Any contribution to improve the source code is always appreciated. [See contributing Guide](./CONTRIBUTING.md). I will put your name below if I've merged your PR multiple times or if you've substantially contributed to this project in other ways.
-
-- [@mithi](https://github.com/mithi)
-- [@icyJoseph](https://github.com/icyJoseph)
-- [@mikong](https://github.com/mikong)
-
-## I love badges! (Don't we all?)
-
-[![License](https://img.shields.io/badge/License-Apache%202.0-orange.svg?style=flat)](https://opensource.org/licenses/Apache-2.0)
-[![code climate issues](https://img.shields.io/codeclimate/issues/mithi/hexapod?label=code%20climate%20issues)](https://codeclimate.com/github/mithi/hexapod/issues)
-[![last commit](https://img.shields.io/github/last-commit/mithi/hexapod)](https://github.com/mithi/hexapod/commits/master)
-[![commits per month](https://img.shields.io/github/commit-activity/m/mithi/hexapod?color=yellow&style=flat)](https://github.com/mithi/hexapod/graphs/commit-activity)
-![top language](https://img.shields.io/github/languages/top/mithi/hexapod)
-![code files size](https://img.shields.io/github/languages/code-size/mithi/hexapod?color=yellow)
-![repo size](https://img.shields.io/github/repo-size/mithi/hexapod?color=violet)
-[![code base blanks count](https://tokei.rs/b1/github/mithi/hexapod?category=blanks)](https://github.com/mithi/hexapod)
-[![code base line count](https://tokei.rs/b1/github/mithi/hexapod?category=lines)](https://github.com/mithi/hexapod)
-[![number of files count](https://tokei.rs/b1/github/mithi/hexapod?category=files)](https://github.com/mithi/hexapod)
-[![number of comments line in code base](https://tokei.rs/b1/github/mithi/hexapod?category=comments)](https://github.com/mithi/hexapod)
-[![lines of code](https://tokei.rs/b1/github/mithi/hexapod?category=code)](https://github.com/mithi/hexapod)
-[![HitCount](http://hits.dwyl.com/mithi/hexapod.svg)](http://hits.dwyl.com/mithi/hexapod)
-
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您可以使用此 Web 应用程序解决逆运动学问题、模拟各种步态等。您还可以实时查看机器人的 18 个关节在任何特定姿势下形成的所有角度。所有计算都在您的浏览器中完成，无需从其他地方获取数据，因此速度应该很快。另一个（有点）很酷的事情是，这个应用程序不依赖于任何外部数学库；它只使用 Javascript 的内置数学对象。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">考虑给我买</font></font><a href="https://ko-fi.com/minimithi" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">几杯咖啡☕☕☕</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来激励我构建其他与机器人相关的可视化工具。（四旋翼飞行器？！）</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特征</font></font></h2><a id="user-content-features" class="anchor" aria-label="固定链接：功能" href="#features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><animated-image data-catalyst="" style="float: right; width: 325px;"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/4151f4ba6725b81896360187401ce3c9d2d834d8a412d1dcf7b8b759421fc41b/68747470733a2f2f6d697468692e6769746875622e696f2f726f626f746963732d626c6f672f73686f772d6f66662d76322d312e676966" data-target="animated-image.originalLink"><img src="https://camo.githubusercontent.com/4151f4ba6725b81896360187401ce3c9d2d834d8a412d1dcf7b8b759421fc41b/68747470733a2f2f6d697468692e6769746875622e696f2f726f626f746963732d626c6f672f73686f772d6f66662d76322d312e676966" alt="绘画" align="right" data-canonical-src="https://mithi.github.io/robotics-blog/show-off-v2-1.gif" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage"></a>
+      <span class="AnimatedImagePlayer" data-target="animated-image.player" hidden="">
+        <a data-target="animated-image.replacedLink" class="AnimatedImagePlayer-images" href="https://camo.githubusercontent.com/4151f4ba6725b81896360187401ce3c9d2d834d8a412d1dcf7b8b759421fc41b/68747470733a2f2f6d697468692e6769746875622e696f2f726f626f746963732d626c6f672f73686f772d6f66662d76322d312e676966" target="_blank">
+          
+        <span data-target="animated-image.imageContainer">
+            <img data-target="animated-image.replacedImage" alt="绘画" class="AnimatedImagePlayer-animatedImage" src="https://camo.githubusercontent.com/4151f4ba6725b81896360187401ce3c9d2d834d8a412d1dcf7b8b759421fc41b/68747470733a2f2f6d697468692e6769746875622e696f2f726f626f746963732d626c6f672f73686f772d6f66662d76322d312e676966" style="display: block; opacity: 1;">
+          <canvas class="AnimatedImagePlayer-stillImage" aria-hidden="true" width="325" height="401"></canvas></span></a>
+        <button data-target="animated-image.imageButton" class="AnimatedImagePlayer-images" tabindex="-1" aria-label="玩画画" hidden=""></button>
+        <span class="AnimatedImagePlayer-controls" data-target="animated-image.controls" hidden="">
+          <button data-target="animated-image.playButton" class="AnimatedImagePlayer-button" aria-label="玩画画">
+            <svg aria-hidden="true" focusable="false" class="octicon icon-play" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 13.5427V2.45734C4 1.82607 4.69692 1.4435 5.2295 1.78241L13.9394 7.32507C14.4334 7.63943 14.4334 8.36057 13.9394 8.67493L5.2295 14.2176C4.69692 14.5565 4 14.1739 4 13.5427Z">
+            </path></svg>
+            <svg aria-hidden="true" focusable="false" class="octicon icon-pause" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="2" width="3" height="12" rx="1"></rect>
+              <rect x="9" y="2" width="3" height="12" rx="1"></rect>
+            </svg>
+          </button>
+          <a data-target="animated-image.openButton" aria-label="在新窗口中打开绘图" class="AnimatedImagePlayer-button" href="https://camo.githubusercontent.com/4151f4ba6725b81896360187401ce3c9d2d834d8a412d1dcf7b8b759421fc41b/68747470733a2f2f6d697468692e6769746875622e696f2f726f626f746963732d626c6f672f73686f772d6f66662d76322d312e676966" target="_blank">
+            <svg aria-hidden="true" class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+              <path fill-rule="evenodd" d="M10.604 1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1zM3.75 2A1.75 1.75 0 002 3.75v8.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 12.25v-3.5a.75.75 0 00-1.5 0v3.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-8.5a.25.25 0 01.25-.25h3.5a.75.75 0 000-1.5h-3.5z"></path>
+            </svg>
+          </a>
+        </span>
+      </span></animated-image></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🎉 控制</font></font></p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">机器人的尺寸</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">机器人的 3D 方向、平移、姿态等</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🎉 解决</font></font></p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">逆运动学</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">正向运动学</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🎉 模拟</font></font></p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">波纹步态和三脚架步态变化</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">向前和向后行走</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">顺时针和逆时针旋转</font></font></li>
+</ul>
+<p dir="auto"><a href="https://hexapod.netlify.app/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🤖🐳☕</font></font></a> <a href="https://mithi.github.io/deep-blueberry/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&ZeroWidthSpace;</font></font></a> <a href="https://ko-fi.com/minimithi" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&ZeroWidthSpace;</font></font></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">相关事物</font></font></h2><a id="user-content-related-things" class="anchor" aria-label="永久链接：相关事物" href="#related-things"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您想使用 Node 构建自己的用户界面，您可以单独下载该算法包：</font></font><a href="https://github.com/mithi/hexapod-kinematics-library"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">六足运动学库</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。还有</font></font><a href="https://github.com/mithi/hexapod-irl"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一个经过修改的“分支”，您可以在其中使用该应用程序来控制物理六足机器人，</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如下面的 gif 所示。</font></font></p>
+<table>
+<thead>
+<tr>
+<th><animated-image data-catalyst=""><a target="_blank" rel="noopener noreferrer nofollow" href="https://user-images.githubusercontent.com/1670421/103467849-46981980-4d8e-11eb-911e-7cb63282c0c2.gif" data-target="animated-image.originalLink"><img src="https://user-images.githubusercontent.com/1670421/103467849-46981980-4d8e-11eb-911e-7cb63282c0c2.gif" alt="" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage"></a>
+      <span class="AnimatedImagePlayer" data-target="animated-image.player" hidden="">
+        <a data-target="animated-image.replacedLink" class="AnimatedImagePlayer-images" href="https://user-images.githubusercontent.com/1670421/103467849-46981980-4d8e-11eb-911e-7cb63282c0c2.gif" target="_blank">
+          
+        <span data-target="animated-image.imageContainer">
+            <img data-target="animated-image.replacedImage" alt="103467849-46981980-4d8e-11eb-911e-7cb63282c0c2.gif" class="AnimatedImagePlayer-animatedImage" src="https://user-images.githubusercontent.com/1670421/103467849-46981980-4d8e-11eb-911e-7cb63282c0c2.gif" style="display: block; opacity: 1;">
+          <canvas class="AnimatedImagePlayer-stillImage" aria-hidden="true" width="320" height="180"></canvas></span></a>
+        <button data-target="animated-image.imageButton" class="AnimatedImagePlayer-images" tabindex="-1" aria-label="播放 103467849-46981980-4d8e-11eb-911e-7cb63282c0c2.gif" hidden=""></button>
+        <span class="AnimatedImagePlayer-controls" data-target="animated-image.controls" hidden="">
+          <button data-target="animated-image.playButton" class="AnimatedImagePlayer-button" aria-label="播放 103467849-46981980-4d8e-11eb-911e-7cb63282c0c2.gif">
+            <svg aria-hidden="true" focusable="false" class="octicon icon-play" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 13.5427V2.45734C4 1.82607 4.69692 1.4435 5.2295 1.78241L13.9394 7.32507C14.4334 7.63943 14.4334 8.36057 13.9394 8.67493L5.2295 14.2176C4.69692 14.5565 4 14.1739 4 13.5427Z">
+            </path></svg>
+            <svg aria-hidden="true" focusable="false" class="octicon icon-pause" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="2" width="3" height="12" rx="1"></rect>
+              <rect x="9" y="2" width="3" height="12" rx="1"></rect>
+            </svg>
+          </button>
+          <a data-target="animated-image.openButton" aria-label="在新窗口中打开 103467849-46981980-4d8e-11eb-911e-7cb63282c0c2.gif" class="AnimatedImagePlayer-button" href="https://user-images.githubusercontent.com/1670421/103467849-46981980-4d8e-11eb-911e-7cb63282c0c2.gif" target="_blank">
+            <svg aria-hidden="true" class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+              <path fill-rule="evenodd" d="M10.604 1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1zM3.75 2A1.75 1.75 0 002 3.75v8.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 12.25v-3.5a.75.75 0 00-1.5 0v3.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-8.5a.25.25 0 01.25-.25h3.5a.75.75 0 000-1.5h-3.5z"></path>
+            </svg>
+          </a>
+        </span>
+      </span></animated-image></th>
+<th><animated-image data-catalyst=""><a target="_blank" rel="noopener noreferrer nofollow" href="https://user-images.githubusercontent.com/1670421/103467765-451a2180-4d8d-11eb-8f94-1a23201595b9.gif" data-target="animated-image.originalLink"><img src="https://user-images.githubusercontent.com/1670421/103467765-451a2180-4d8d-11eb-8f94-1a23201595b9.gif" alt="" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage"></a>
+      <span class="AnimatedImagePlayer" data-target="animated-image.player" hidden="">
+        <a data-target="animated-image.replacedLink" class="AnimatedImagePlayer-images" href="https://user-images.githubusercontent.com/1670421/103467765-451a2180-4d8d-11eb-8f94-1a23201595b9.gif" target="_blank">
+          
+        <span data-target="animated-image.imageContainer">
+            <img data-target="animated-image.replacedImage" alt="103467765-451a2180-4d8d-11eb-8f94-1a23201595b9.gif" class="AnimatedImagePlayer-animatedImage" src="https://user-images.githubusercontent.com/1670421/103467765-451a2180-4d8d-11eb-8f94-1a23201595b9.gif" style="display: block; opacity: 1;">
+          <canvas class="AnimatedImagePlayer-stillImage" aria-hidden="true" width="300" height="169"></canvas></span></a>
+        <button data-target="animated-image.imageButton" class="AnimatedImagePlayer-images" tabindex="-1" aria-label="播放 103467765-451a2180-4d8d-11eb-8f94-1a23201595b9.gif" hidden=""></button>
+        <span class="AnimatedImagePlayer-controls" data-target="animated-image.controls" hidden="">
+          <button data-target="animated-image.playButton" class="AnimatedImagePlayer-button" aria-label="播放 103467765-451a2180-4d8d-11eb-8f94-1a23201595b9.gif">
+            <svg aria-hidden="true" focusable="false" class="octicon icon-play" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 13.5427V2.45734C4 1.82607 4.69692 1.4435 5.2295 1.78241L13.9394 7.32507C14.4334 7.63943 14.4334 8.36057 13.9394 8.67493L5.2295 14.2176C4.69692 14.5565 4 14.1739 4 13.5427Z">
+            </path></svg>
+            <svg aria-hidden="true" focusable="false" class="octicon icon-pause" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="2" width="3" height="12" rx="1"></rect>
+              <rect x="9" y="2" width="3" height="12" rx="1"></rect>
+            </svg>
+          </button>
+          <a data-target="animated-image.openButton" aria-label="在新窗口中打开 103467765-451a2180-4d8d-11eb-8f94-1a23201595b9.gif" class="AnimatedImagePlayer-button" href="https://user-images.githubusercontent.com/1670421/103467765-451a2180-4d8d-11eb-8f94-1a23201595b9.gif" target="_blank">
+            <svg aria-hidden="true" class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+              <path fill-rule="evenodd" d="M10.604 1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1zM3.75 2A1.75 1.75 0 002 3.75v8.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 12.25v-3.5a.75.75 0 00-1.5 0v3.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-8.5a.25.25 0 01.25-.25h3.5a.75.75 0 000-1.5h-3.5z"></path>
+            </svg>
+          </a>
+        </span>
+      </span></animated-image></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">行走步态</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运动学</font></font></td>
+</tr>
+</tbody>
+</table>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">主要贡献者</font></font><a href="/mithi/hexapod/blob/master/CONTRIBUTING.md"><img src="https://camo.githubusercontent.com/a44fefa68aff44668ef301a02f4f0891b8fcc2c09cba13e5652b4883aaffe926/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5052732d77656c636f6d652d6f72616e67652e7376673f7374796c653d666c6174" alt="欢迎 PR！" data-canonical-src="https://img.shields.io/badge/PRs-welcome-orange.svg?style=flat" style="max-width: 100%;"></a></h2><a id="user-content-main-contributors-" class="anchor" aria-label="永久链接：主要贡献者" href="#main-contributors-"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">任何有助于改进源代码的贡献都会受到赞赏。</font></font><a href="/mithi/hexapod/blob/master/CONTRIBUTING.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请参阅贡献指南</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。如果我多次合并了您的 PR，或者您以其他方式对此项目做出了重大贡献，我会将您的名字写在下面。</font></font></p>
+<ul dir="auto">
+<li><a href="https://github.com/mithi"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@米蒂</font></font></a></li>
+<li><a href="https://github.com/icyJoseph"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@icyJoseph</font></font></a></li>
+<li><a href="https://github.com/mikong"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@米空</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我喜欢徽章！（我们不是都喜欢吗？）</font></font></h2><a id="user-content-i-love-badges-dont-we-all" class="anchor" aria-label="永久链接：我喜欢徽章！（我们不是都喜欢吗？）" href="#i-love-badges-dont-we-all"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a href="https://opensource.org/licenses/Apache-2.0" rel="nofollow"><img src="https://camo.githubusercontent.com/e2a49a26ed70e606e261a5054e78d02d211afb18a672929890be784f401c6ac0/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d417061636865253230322e302d6f72616e67652e7376673f7374796c653d666c6174" alt="执照" data-canonical-src="https://img.shields.io/badge/License-Apache%202.0-orange.svg?style=flat" style="max-width: 100%;"></a>
+<a href="https://codeclimate.com/github/mithi/hexapod/issues" rel="nofollow"><img src="https://camo.githubusercontent.com/ed6fe173f89635dba428541d0eff16babc2492d8ada645482cc9536f85bade6f/68747470733a2f2f696d672e736869656c64732e696f2f636f6465636c696d6174652f6973737565732f6d697468692f68657861706f643f6c6162656c3d636f6465253230636c696d617465253230697373756573" alt="代码气候问题" data-canonical-src="https://img.shields.io/codeclimate/issues/mithi/hexapod?label=code%20climate%20issues" style="max-width: 100%;"></a>
+<a href="https://github.com/mithi/hexapod/commits/master"><img src="https://camo.githubusercontent.com/97d3f343f82b9e2d3e4f4d56b04eb04e832dbba1b26980258c217fbbd85d97f3/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6173742d636f6d6d69742f6d697468692f68657861706f64" alt="最后提交" data-canonical-src="https://img.shields.io/github/last-commit/mithi/hexapod" style="max-width: 100%;"></a>
+<a href="https://github.com/mithi/hexapod/graphs/commit-activity"><img src="https://camo.githubusercontent.com/5a4baff38fdf868dc39bc277f3140d785dc7dd826a3c1ab4324c3823ab3d1e40/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f636f6d6d69742d61637469766974792f6d2f6d697468692f68657861706f643f636f6c6f723d79656c6c6f77267374796c653d666c6174" alt="每月提交" data-canonical-src="https://img.shields.io/github/commit-activity/m/mithi/hexapod?color=yellow&amp;style=flat" style="max-width: 100%;"></a>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/fee0e10f7981a11bb6a9da5a7beadf4d94f1e9b47877038bf4bce50986339eca/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c616e6775616765732f746f702f6d697468692f68657861706f64"><img src="https://camo.githubusercontent.com/fee0e10f7981a11bb6a9da5a7beadf4d94f1e9b47877038bf4bce50986339eca/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c616e6775616765732f746f702f6d697468692f68657861706f64" alt="顶级语言" data-canonical-src="https://img.shields.io/github/languages/top/mithi/hexapod" style="max-width: 100%;"></a>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/29717cc73e773744ddb170ea95d8822337a56dc01563c6bcf8dadcc1ddc34ecc/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c616e6775616765732f636f64652d73697a652f6d697468692f68657861706f643f636f6c6f723d79656c6c6f77"><img src="https://camo.githubusercontent.com/29717cc73e773744ddb170ea95d8822337a56dc01563c6bcf8dadcc1ddc34ecc/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c616e6775616765732f636f64652d73697a652f6d697468692f68657861706f643f636f6c6f723d79656c6c6f77" alt="代码文件大小" data-canonical-src="https://img.shields.io/github/languages/code-size/mithi/hexapod?color=yellow" style="max-width: 100%;"></a>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/d90182ac8a4c0a723d41e2d1c8be2f15e068edde304c01f86d60570390c3f4b9/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f7265706f2d73697a652f6d697468692f68657861706f643f636f6c6f723d76696f6c6574"><img src="https://camo.githubusercontent.com/d90182ac8a4c0a723d41e2d1c8be2f15e068edde304c01f86d60570390c3f4b9/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f7265706f2d73697a652f6d697468692f68657861706f643f636f6c6f723d76696f6c6574" alt="回购规模" data-canonical-src="https://img.shields.io/github/repo-size/mithi/hexapod?color=violet" style="max-width: 100%;"></a>
+<a href="https://github.com/mithi/hexapod"><img src="https://camo.githubusercontent.com/a8822951a151e5f992a3f81616419b4953fe47616b4b59f8a2f00b187ee35e2c/68747470733a2f2f746f6b65692e72732f62312f6769746875622f6d697468692f68657861706f643f63617465676f72793d626c616e6b73" alt="代码库空白计数" data-canonical-src="https://tokei.rs/b1/github/mithi/hexapod?category=blanks" style="max-width: 100%;"></a>
+<a href="https://github.com/mithi/hexapod"><img src="https://camo.githubusercontent.com/5d06a1173df4a2f0e6aa9c19f775517870a1883c58f187c9c917173279c5d4ca/68747470733a2f2f746f6b65692e72732f62312f6769746875622f6d697468692f68657861706f643f63617465676f72793d6c696e6573" alt="代码基线行数" data-canonical-src="https://tokei.rs/b1/github/mithi/hexapod?category=lines" style="max-width: 100%;"></a>
+<a href="https://github.com/mithi/hexapod"><img src="https://camo.githubusercontent.com/f6af5cb062d1f264837a04631657488f9a8ec2004fa285c446c34dd7458c13d6/68747470733a2f2f746f6b65692e72732f62312f6769746875622f6d697468692f68657861706f643f63617465676f72793d66696c6573" alt="文件数" data-canonical-src="https://tokei.rs/b1/github/mithi/hexapod?category=files" style="max-width: 100%;"></a>
+<a href="https://github.com/mithi/hexapod"><img src="https://camo.githubusercontent.com/86640ea8608322d96fc1eaa8e181dbe78dbee97422403446f8c209051be59828/68747470733a2f2f746f6b65692e72732f62312f6769746875622f6d697468692f68657861706f643f63617465676f72793d636f6d6d656e7473" alt="代码库中的注释行数" data-canonical-src="https://tokei.rs/b1/github/mithi/hexapod?category=comments" style="max-width: 100%;"></a>
+<a href="https://github.com/mithi/hexapod"><img src="https://camo.githubusercontent.com/b5b2141fa4ad4e538eb6f6c312f5dc35676bb0e518794963df11fc14c0df2ea1/68747470733a2f2f746f6b65692e72732f62312f6769746875622f6d697468692f68657861706f643f63617465676f72793d636f6465" alt="代码行" data-canonical-src="https://tokei.rs/b1/github/mithi/hexapod?category=code" style="max-width: 100%;"></a>
+<a href="http://hits.dwyl.com/mithi/hexapod" rel="nofollow"><img src="https://camo.githubusercontent.com/22c77622ead0911100fdc73847889eae44e99e15391f1def96fc4d9fc998aebd/687474703a2f2f686974732e6477796c2e636f6d2f6d697468692f68657861706f642e737667" alt="点击次数" data-canonical-src="http://hits.dwyl.com/mithi/hexapod.svg" style="max-width: 100%;"></a></p>
+</article></div>
